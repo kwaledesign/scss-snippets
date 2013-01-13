@@ -1,0 +1,2472 @@
+# Based on :
+# http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
+# http://compass-style.org/reference/compass/
+#
+# =========================================
+# Sass
+# =========================================
+#
+# Define a variable
+snippet v
+$${1:name}: ${2:value};
+${3}
+# @extend - Selector Inheritance
+snippet ex
+@extend .${1:class};
+${2}
+# @mixin - Define a mixin
+snippet mix
+@mixin ${1:name} {
+  ${2}
+}
+# @include - Use a mixin
+snippet inc
+@include ${1:mixin};
+${2}
+#
+# SASS RGB Functions
+#
+# Converts an rgb(red, green, blue) triplet into a color.
+snippet rgb
+rgb(${1:red}, ${2:green}, ${3:blue})
+${4}
+# Converts an rgba(red, green, blue, alpha) quadruplet into a color.
+snippet rgba
+rgba(${1:red}, ${2:green}, ${3:blue}, ${4:alpha})
+${5}
+# Adds an alpha layer to any color value.
+snippet rgbc
+rgba(${1:color}, ${2:alpha})
+${3}
+# Gets the red component of a color.
+snippet red
+red(${1:color})
+${2}
+# Gets the green component of a color.
+snippet gre
+green(${1:color})
+${2}
+# Gets the blue component of a color.
+snippet blu
+blue(${1:color})
+${2}
+# Mixes two colors together.
+snippet mixc
+mix(${1:color1}, ${2:color2})
+${3}
+# Mixes two colors together (weighted)
+snippet mixcw
+mix(${1:color1}, ${2:color2}, ${3:weight})
+${4}
+#
+# SASS HSL Functions
+#
+# Converts an hsl(hue, saturation, lightness) triplet into a color.
+snippet hsl
+hsl(${1:hue}, ${2:saturation}, ${3:lightness})
+${4}
+# Converts an hsla(hue, saturation, lightness, alpha) quadruplet into a color.
+snippet hsla
+hsla(${1:hue}, ${2:saturation}, ${3:lightness}, ${4:alpha})
+${5}
+# Gets the hue component of a color.
+snippet hue
+hue(${1:color})
+${2}
+# Gets the saturation component of a color.
+snippet satc
+saturation(${1:color})
+${2}
+# Gets the lightness component of a color.
+snippet ligc
+lightness(${1:color})
+${2}
+# Changes the hue of a color.
+snippet adj
+adjust-hue(${1:color}, ${2:degrees})
+${3}
+# Makes a color lighter.
+snippet lig
+lighten(${1:color}, ${2:amount})
+${3}
+# Makes a color darker.
+snippet dar
+darken(${1:color}, ${2:amount})
+${3}
+# Makes a color more saturated.
+snippet sat
+saturate(${1:color}, ${2:amount})
+${3}
+# Makes a color less saturated.
+snippet des
+desaturate(${1:color}, ${2:amount})
+${3}
+# Converts a color to grayscale.
+snippet gra
+grayscale(${1:color})
+${2}
+# Returns the complement of a color.
+snippet com
+complement(${1:color})
+${2}
+# Returns the inverse of a color.
+snippet inv
+invert(${1:color})
+${2}
+#
+# SASS Opacity Functions
+#
+# Gets the alpha component (opacity) of a color.
+snippet alp
+alpha(${1:color})
+${2}
+# Add or change an alpha layer for any color value.
+# - already defined, see 'rgbc'
+# Makes a color more opaque.
+snippet opa
+opacify(${1:color}, ${2:amount})
+${3}
+# Makes a color more transparent.
+snippet tra
+transparentize(${1:color}, ${2:amount})
+${3}
+#
+# Other Color Functions
+#
+# Increase or decrease any of the componens of a color
+snippet ac
+adjust-color(${1:color})
+${2}
+# Fluidly scale one or more components of a color
+snippet sc
+scale-color(${1:color})
+${2}
+# Changes one or more properties of a color
+snippet cc
+change-color(${1:color})
+${2}
+# Converts a color into the format understood by IE filters
+snippet iehx
+ie-hex-str($color)
+${2}
+#
+# String Functions
+#
+snippet uq
+unquote($string)
+${1}
+# Adds quotes to a string
+snippet q
+quote($string)
+${1}
+#
+# Number Functions
+#
+# Converts a unitless number to a percentage.
+snippet per
+percentage(${1:value})
+${2}
+# Rounds a number to the nearest whole number.
+snippet rou
+round(${1:value})
+${1}
+# Rounds a number up to the nearest whole number.
+snippet cei
+ceil(${1:value})
+${2}
+# Rounds a number down to the nearest whole number.
+snippet flo
+floor(${1:value})
+${2}
+# Returns the absolute value of a number.
+snippet abs
+abs(${1:value})
+${2}
+# Finds the minumum of several values
+snippet min
+min(${1})
+${2}
+# Finds the maximum of several vaules
+snippet max
+max(${1})
+${2}
+#
+# List Functions
+#
+# Returns the length of a list
+snippet len
+length(${1})
+${2}
+# Returns a specific item in a list
+snippet nth
+nth(${1})
+${2}
+# Joins together two lists into one
+snippet join
+join(${1})
+${2}
+# Appends a single value onto the end of a list
+snippet app
+append({1:list1}, ${2:val})
+${3}
+#
+# Introspective Functions
+#
+# Returns the type of a value
+snippet to
+type-of($1})
+${2}
+# Returns the units associated with a number
+snippet u
+unit(${1})
+${2}
+# Returns whether a number has units or not
+snippet uless
+unitless(${1})
+${2}
+# Returns whether two lnumbers can be added or compared
+snippet comp
+comparable(${1:num1}, ${2:num2})
+${3}
+#
+# Miscellaneous Function
+#
+# Returns one of two values, depending on whether or not a condition is true
+snippet if
+if(${1:condition}, ${2:if-true}, ${3:if-false})
+${4}
+#
+# =========================================
+# Compass Snippets
+# =========================================
+#
+# Compass CSS3 Module Snippets
+#
+# Appearance
+snippet @ap
+@include appearance(${1:$ap});
+${2}
+# Background Clip
+snippet $dbc
+$default-background-clip
+${1}
+snippet @bgc
+@include background-clip(${1:border-box}); 
+${1}
+# Background Origin
+snippet $dbo
+$default-background-origin
+${1}
+snippet @bgo
+@include background-orgin(${1:content-box});
+${2}
+# Background Size
+snippet $dbgs
+$default-background-size
+${1}
+snippet @bgs
+@include background-size(${1:size-1});
+${2}
+# Border Radius
+snippet $dbr
+$default-border-radius
+${1}
+snippet @br
+@include border-radius(${1:0}, ${2:0}, ${3:0}, ${4:0});
+${1}
+snippet @bcr
+@include border-corner-radius(${1:vert}, ${2:horz}, ${3:radius});
+${4}
+snippet @btlr
+@include border-top-left-radius(${1});
+${2}
+snippet @btrr
+@include border-top-right-radius(${1});
+${2}
+snippet @bblr
+@include border-top-right-radius(${1});
+${2}
+snippet @bbrr
+@include border-bottom-right-radius(${1});
+${2}
+snippet @btr
+@include border-top-radius(${1});
+${2}
+snippet @brr
+@include border-right-radius(${1});
+${2}
+snippet @blr
+@include border-left-radius(${1});
+${2}
+# Box
+snippet $dbo
+$default-box-orient
+${1}
+snippet $dba
+$default-box-align
+${1}
+snippet $dbf
+$default-box-flex
+${1}
+snippet $dbfg
+$default-box-flex-group
+${1}
+snippet $dbg
+$default-box-ordinal-group
+${1}
+snippet $dbd
+$default-box-direction
+${1}
+snippet $dbl
+$default-box-lines
+${1}
+snippet $dbp
+$default-box-pack
+${1}
+snippet @db
+@include display-box;
+${1}
+snippet @bo
+@include box-orient(${1:horizontal});
+${1}
+snippet @ba
+@include box-align(${1:start});
+${1}
+snippet @bf
+@include box-flex(${1:0});
+${2}
+snippet @bfg
+@include box-flex-group(${1:group});
+${2}
+snippet @bd
+@include box-direction(${1:normal});
+${2}
+snippet @bl
+@include box-lines(${1:single})
+${2}
+snippet @bp
+@include box-pack(${1:start});
+${2}
+# Box Shadow
+snippet $dbsc
+$default-box-shadow-color
+${1}
+snippet $dbsho
+$default-box-shadow-h-offset
+${1}
+snippet $dbsvo
+$default-box-shadow-v-offest
+${1}
+snippet $dbsb
+$default-box-shadow-blur
+${1}
+snippet $dbss
+$default-box-shadow-spread
+${1}
+snippet $dbsi
+$default-box-shadow-inset
+${1}
+snippet @bs
+@include box-shadow(${1:#333}, ${2:0px}, ${3:0px}, ${4:5px}, ${5:false}, ${6:false});
+${7}
+# Box Sizing
+snippet @box-size
+@include box-sizing(${1:border-box});
+${2}
+# CSS Regions
+snippet @fi
+@include flow-into(${1:target});
+${2}
+snippet @ff
+@include flow-from(${1:target});
+${2}
+# Columns
+snippet @c
+@include columns(${1:20em} ${2:2});
+${3}
+snippet @cc
+@include column-count(${1:2});
+${2}
+snippet @cg
+@include column-gap(${1:20px});
+${2}
+snippet @cw
+@include column-width(${1:40em});
+${2}
+snippet @crw
+@include column-rule-width(${1:1px});
+${2}
+snippet @crs
+@include column-rule-style(${1:solid});
+${2}
+snippet @crc
+@include column-rule-color(${1:black});
+${2}
+snippet @cr
+@include column-rule(${1:1px} ${2:solid} ${3:black});
+${4}
+snippet @cbb
+@include column-break-before(${1:auto});
+${2}
+snippet @cba
+@include column-break-after(${1:auto});
+${2}
+snippet @cbi
+@include column-break-inside(${1:auto});
+${2}
+snippet @cb
+@include column-break(${1:before}, ${2:auto});
+${3}
+# Filter
+snippet @f
+@include filter(${1});
+${2}
+# Font Face
+snippet @ff
+@include font-face(${1:name}, ${2:font-files}, ${3:false}, ${4:false}, ${5:false});
+${6}
+# Hyphenation
+snippet @wb
+@include word-break(${1:normal});
+${2}
+snippet @hs
+@include hyphens(${1:auto});
+${2}
+snippet @h
+@include hyphenation;
+${1}
+# Images
+snippet @bg
+@include background(${1});
+${2}
+snippet @bgfb
+@include background-with-css2-fallback(${1});
+${2}
+snippet @bgi
+@include background-image(${1});
+${2}
+snippet @fg
+@include filter-gradient(${1:start-color}, ${2:end-color}, ${3:false});
+${4}
+snippet @bi
+@include border-image(${1:value});
+${2}
+snippet @lsi
+@include list-style-image(${1:image});
+${2}
+snippet @ls
+@include list-style(${1:value});
+${2}
+snippet @con
+@include content(${1:value});
+${2}
+# Opacity
+snippet @o
+@include opacity(${1:.5});
+${2}
+snippet @tran
+@include transparent;
+${2}
+# Shared Utilities
+snippet @ex
+@include experimental(${1:property}, ${2:value});
+${3}
+snippet @exv
+@include experimental(${1:property}, ${2:value});
+${3}
+# Text Shadow
+snippet $dtsc
+$default-text-shadow-color
+${1}
+snippet $dtsho
+$default-text-shadow-h-offset
+${1}
+snippet $dtsvo
+$default-text-shadow-v-offset
+${1}
+snippet $dtsb
+$default-text-shadow-blur
+${1}
+snippet $dtss
+$defalut-text-shadow-spread
+${1}
+snippet @ts
+@include text-shadow(${1:#aaa}, ${2:0px}, ${3:0px}, ${4:1px}, ${5:false});
+${6}
+# Transform
+snippet $dox
+$default-origin-x
+${1}
+snippet $doy
+$default-orgin-y
+${1}
+snippet $doz
+$default-scale-z
+${1}
+snippet $dsx
+$default-scale-x
+${1}
+snippet $dsy
+$default-scale-y
+${1}
+snippet $dsz
+$default-scale-z
+${1}
+snippet $dr
+$default-rotate
+${1}
+snippet $dr
+$default-rotate
+${1}
+snippet $dvx
+$default-vector-x
+${1}
+snippet $dvy
+$default-vector-y
+${1}
+snippet $dvz
+$default-vector-z
+${1}
+snippet $dtx
+$default-translate-x
+${1}
+snippet $dtz
+$default-translate-z
+${1}
+snippet $dsx
+$default-skew-x
+${1}
+snippet $dsy
+$default-skew-y
+${1}
+snippet @ao
+@include apply-orgin(${1:orgin-x}, ${2:orgin-y}, ${3:orgin-z}, ${4:3D-only});
+${5}
+snippet @to
+@include transform-orgin(${1:orgin-x}, ${2:orgin-y}, ${3:orgin-z}, ${4:3D-only});
+${5}
+snippet @t
+@include transform(${1:transform}, ${2:3D-only});
+${3}
+snippet @t2d
+@include transform2d(${1:transform});
+${2}
+snippet @t3d
+@include transform3d(${1:transform});
+${2}
+snippet @p
+@include perspective(${1:perspective});
+${2}
+snippet @po
+@include perspective(${1:origin});
+${2}
+snippet @t-style
+@include transform-style(${1:preserve-3d});
+${2}
+snippet @bfv
+@include backgace-visibility(${1:visable});
+${2}
+snippet @scale
+@include scale(${1:scale-x}, ${2:scale-y}, ${3:perspective}, ${4:3D-only});
+${5}
+snippet @scalex
+@include scaleX(${1:scale}, ${2:perspective}, ${3:3D-only});
+${4}
+snippet @scaley
+@include scaleY(${1:scale}, ${2:perspective}, ${3:3D-only});
+${4}
+snippet @scalez
+@include scaleZ(${1:scale}, ${2:perspective}, ${3:3D-only});
+${4}
+snippet @scale3d
+@include scale3d(${1:scale-x}, ${2:scale-y}, ${3:scale-z}, ${4:perspective});
+${5}
+snippet @rot
+@include rotate(${1:rotate}, ${2:perspective}, ${3:3D-only});
+${4}
+snippet @rotz
+@include rotateZ(${1:rotate}, ${2:perspective}, ${3:3D-only});
+${4}
+snippet @rotx
+@include rotateX(${1:rotate}, ${2:perspective});
+${3}
+snippet @roty
+@include rotateY(${1:rotate}, ${2:perspective});
+${3}
+snippet @rot3d
+@include rotate3d(${1:vector-x}, ${2:vector-y}, ${3:vector-z}, ${4:rotate}, ${5:perspective});
+${6}
+snippet @trans
+@include translate(${1:translate-x}, ${2:translate-y}, ${3:perspective}, ${4:3D-only});
+${5}
+snippet @transx
+@include translateX(${1:trans-x}, ${2:perspective}, ${3:3D-only});
+${4}
+snippet @transy
+@include translateY(${1:trans-y}, ${2:perspective}, ${3:3D-only});
+${4}
+snippet @transz
+@include translateZ(${1:trans-z}, ${2:perspective});
+${3}
+snippet @trans3d
+@include translate3d(${1:translate-x}, ${2:translate-y}, ${3:translate-z}, ${4:perspective});
+${5}
+snippet @skew
+@include skew(${1:skew-x}, ${2:skew-y}, ${3:3D-only});
+${4}
+snippet @skewx
+@include skewX(${1:skew-x}, ${2:3D-only});
+${3}
+snippet @skewy
+@include skewY(${1:skew-y}, $2:3D-only});
+${3}
+snippet @ctrans
+@include create-transform(${1});
+${2}
+snippet @strans
+@include simple-transform(${1});
+${2}
+snippet @cl
+@include comma-list(${1:list});
+${2}
+snippet @pft
+@include prefixed-for-transition(${1:prefix}, ${2:property});
+${3}
+snippet @it
+@include is-time(${1:value});
+${2}
+snippet @tp
+@include transition-property(${1});
+${2}
+snippet @td
+@include transition-duration(${1});
+${2}
+snippet @ttf
+@include transition-timing-function(${1});
+${2}
+snippet @tdel
+@include transition-delay(${1});
+${2}
+snippet @st
+@include single-transition(${1});
+${2}
+# Transition
+snippet $dtp
+$default-transition-property
+${1}
+snippet $dtd
+$default-transition-duration
+${1}
+snippet $dtf
+$default-transition-function
+${1}
+snippet $dtd
+$default-transition-delay
+${1}
+snippet $tpv
+$transitionable-prefixed-values
+${1}
+snippet c-l
+comma-list(${1})
+${2}
+snippet p-f-t
+prefixed-for-transition(${1}, ${2})
+${3}
+snippet i-t
+is-time(${1})
+${2}
+snippet transi-p
+@include transition-property(${1});
+${2}
+snippet transi-d
+@include transition-duration(${1});
+${2}
+snippet transi-tf
+@include transition-timing-function(${1});
+${2}
+snippet transi-d
+@include transition-delay(${1});
+${2}
+snippet s-transi
+@include single-transition(${1});
+${2}
+snippet @transi
+@include transition(${1});
+${2}
+#
+# Compass Typography Module Snippets
+#
+# Vertical Rhythm
+snippet $bfs
+$base-font-size
+${1}
+snippet $blh
+$base-line-height
+${1}
+snippet $drbs
+$default-rhythm-border-style
+${1}
+snippet $rfs
+$relative-font-size
+${1}
+snippet $rtnhl
+$round-to-nearest-half-line
+${1}
+snippet $mlp
+$min-line-padding
+${1}
+snippet $fu
+$font-unit
+${1}
+snippet $bdfs
+$browser-default-font-size
+${1}
+snippet $bru
+$base-rhythm-unit
+${1}
+snippet $bl
+$base-leader
+${1}
+snippet $bhl
+$base-half-leader
+${1}
+snippet @ru
+relative-unit(${1});
+${2}
+snippet @au
+absolute-unit(${1});
+${2}
+snippet @R
+rhythm(${1});
+${2}
+snippet @lffs
+lines-for-font-size(${1});
+${2}
+snippet @eb
+@include establish-baseline(${1});
+${2}
+snippet @rb
+@include reset-baseline;
+${1}
+snippet @dva
+@include debug-vertical-alignment(${1});
+${2}
+snippet @afst
+@include adjust-font-size-t(${1});
+${2}
+snippet @alt
+@include adjust-leading-to(${1});
+${2}
+snippet @l
+@include leader(${1});
+${2}
+snippet @pl
+@include padding-leader(${1});
+${2}
+snippet @ml
+@include margin-leader(${1});
+${2}
+snippet @t
+@include trailer(${1});
+${2}
+snippet @pt
+@include padding-trailer(${1});
+${2}
+snippet @mt
+@include margin-trailer(${1});
+${2}
+snippet @r
+@include rhythm(${1});
+${2}
+snippet @asrb
+@include apply-side-rhythm-border(${1});
+${2}
+snippet @rbo
+@inlcude rhythm-border($});
+${2}
+snippet @lb
+@include leading-border(${1});
+{2}
+snippet @tb
+@inlcude trailing-border(${1});
+${2}
+snippet @hb
+@include horizontal-borders({$});
+${2}
+#
+# Helpers
+#
+# Color 
+snippet @al
+@include adjust-lightness(${1:color}, ${2:amount});
+${2}
+snippet @as
+@include adjust-saturation(${1:color}, ${2:amount});
+${3}
+snippet @sl
+@include scale-lightness(${1:color}, ${2:amount});
+${3}
+snippet @ss
+@include scale-saturation(${1:color}, ${2:amount});
+${3}
+snippet @sh
+@include shade(${1:color}, ${2:%});
+${3}
+snippet @ti
+@include tint(${color}, ${2:%});
+${3}
+# Constants
+snippet @op
+@include opposite-position(${1});
+{2}
+# Display
+snippet @eot
+@include elements-of-type(${1:disply});
+${2}
+# Font Files
+snippet @f-f
+@include font-files(${1});
+${2}
+# Image Dimensions
+snippet @iw
+@include iage-width(${1});
+${2}
+snippet @ih
+@include image-height(${1});
+${2}
+# Inline Data
+snippet @ii
+@include inline-image(${1});
+${2}
+snippet @iff
+@include inline-font-files(${1}, ${2});
+{3}
+# Math
+snippet pi
+pi()
+${1}
+snippet sin
+sin(${1})
+${1}
+snippet cos
+cos(${1})
+${2}
+snippet tan
+tan(${1})
+${2}
+snippet e
+e()
+${1}
+snippet log
+log(${1})
+${2}
+snippet sqrt 
+sqrt(${1})
+${2}
+snippet pow
+pow(${1:number}, ${2:exponent});
+${3}
+# Selectors
+snippet nest
+nest(${1})
+${2}
+snippet aps
+append-selector(${1})
+${2}
+snippet headers
+headers($}{1})
+${2}
+# URLS
+snippet s-u
+stylesheet-url(${1})
+${2}
+snippet f-u
+font-url(${1})
+${2}
+snippet i-u
+image-url(${1})
+${2}
+snippet g-i-u
+generated-image-url(${1:path}, ${2:false})
+${3}
+# Grid
+snippet $gbcc
+$grid-background-column-color: rgba(${1}, ${2}, ${3}, ${4});
+${5}
+snippet $gbgc
+$grid-background-gutter-color: rgba(${1}, ${2}, ${3}, ${4});
+${5}
+snippet $gbtc
+$grid-background-total-columns: ${1};
+${2}
+snippet $gbcw
+$grid-background-column-width: ${1};
+${2}
+snippet $gbgw
+$grid-background-gutter-width: ${1};
+${2}
+snippet $gbo
+$grid-background-offset: ${1};
+${2}
+snippet $bggc
+$grid-background-baseline-color: rgba(${1}, ${2}, ${3}, ${4});
+${5}
+snippet $gbbh
+$grid-background-baseline-height: ${1};
+${2}
+snippet $scgb
+$show-column-grid-backgrounds: ${1:true};
+${2}
+snippet $sbgb
+$show-baseline-grid-backgrounds: ${1:true};
+${2}
+snippet $sgb
+$show-grid-backgrounds: ${1:true};
+${2}
+snippet $gbff
+$grid-background-force-fluid: ${1:false};
+${2}
+snippet gbg
+get-baseline-gradient(${1});
+${2}
+snippet bgb
+build-grid-background(${1});
+${2}
+snippet gcg
+get-column-gradient(${1});
+${2}
+snippet gcfg
+get-column-fluid-grid(${1});
+${2}
+snippet @bgb
+@include baseline-grid-background(${1});
+${2}
+snippet @cgb
+@include column-grid-background(${1});
+${2}
+snippet @gb
+@include grid-background(${1});
+${2}
+# Sprites
+snippet $ss
+$sprite-selectors
+${1}
+snippet $dmss
+$disable-magic-sprite-selectors
+${1}
+snippet @sd
+@include sprite-dimensions(${1:map}, ${2:sprite});
+${2}
+snippet @sbp
+@include sprite-background-position(${1});
+${2}
+snippet @s
+@include sprite(${1});
+${2}
+snippet @sps
+@include sprites(${1});
+${2}
+snippet @sm
+@include sprite-map(${1});
+${2}
+snippet @smn
+@include sprite-map-name(${1:map});
+${2}
+snippet @sf
+@include sprite-file(${1}, ${2});
+{3}
+snippet @su
+@include sprite-url(${1:map});
+${2}
+snippet @sp
+@include sprite-position(${1});
+${2}
+#
+# =========================================
+# CSS Snippets
+# =========================================
+#
+# Class
+snippet .
+${1:class} {
+  ${2:property}
+}
+# id
+snippet #
+${1:id} {
+  ${2:property}
+}
+# Important
+snippet !
+!important
+# Font Face
+snippet @f
+@font-face {
+  font-family: ${1};
+  src: url(${2});
+}
+# Import URL
+snippet @i
+@import url(${1});
+${2}
+# @media
+snippet @m
+@media ${1:print} {
+  ${2}
+}
+# Background
+snippet bg+
+background: #${1:FFF} url(${2}) ${3:0} ${4:0} ${5:no-repeat};
+${6}
+snippet bga
+background-attachment: ${1};
+${2}
+snippet bga:f
+background-attachment: fixed;
+${1}
+snippet bga:s
+background-attachment: scroll;
+${1}
+snippet bgbk
+background-break: ${1};
+${1}
+snippet bgbk:bb
+background-break: bounding-box;
+${1}
+snippet bgbk:c
+background-break: continuous;
+${1}
+snippet bgbk:eb
+background-break: each-box;
+${1}
+snippet bgcp
+background-clip: ${1};
+${1}
+snippet bgcp:bb
+background-clip: border-box;
+${1}
+snippet bgcp:cb
+background-clip: content-box;
+${1}
+snippet bgcp:nc
+background-clip: no-clip;
+${1}
+snippet bgcp:pb
+background-clip: padding-box;
+${1}
+snippet bgc
+background-color: #${1:FFF};
+${1}
+snippet bgc:t
+background-color: transparent;
+${1}
+snippet bgi
+background-image: url(${1});
+${1}
+snippet bgi:n
+background-image: none;
+${1}
+snippet bgo
+background-origin: ${1};
+${1}
+snippet bgo:bb
+background-origin: border-box;
+${1}
+snippet bgo:cb
+background-origin: content-box;
+${1}
+snippet bgo:pb
+background-origin: padding-box;
+${1}
+snippet bgpx
+background-position-x: ${1};
+${2}
+snippet bgpy
+background-position-y: ${1};
+${2}
+snippet bgp
+background-position: ${1:0} ${2:0};
+${3}
+snippet bgr
+background-repeat: ${1};
+${2}
+snippet bgr:n
+background-repeat: no-repeat;
+${1}
+snippet bgr:x
+background-repeat: repeat-x;
+${1}
+snippet bgr:y
+background-repeat: repeat-y;
+${1}
+snippet bgr:r
+background-repeat: repeat;
+${1}
+snippet bgz
+background-size: ${1};
+${3}
+snippet bgz:a
+background-size: auto;
+${1}
+snippet bgz:ct
+background-size: contain;
+${1}
+snippet bgz:cv
+background-size: cover;
+${1}
+snippet bg
+background: ${1};
+${1}
+snippet bg:ie
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='${1}',sizingMethod='${2:crop}');
+${3}
+snippet bg:n
+background: none;
+${1}
+# Border
+snippet bd+
+border: ${1:1px} ${2:solid} #${3:000};
+${4}
+snippet bdb+
+border-bottom: ${1:1px} ${2:solid} #${3:000};
+${4}
+snippet bdbc
+border-bottom-color: #${1:000};
+${2}
+snippet bdbi
+border-bottom-image: url(${1});
+${1}
+snippet bdbi:n
+border-bottom-image: none;
+${1}
+snippet bdbli
+border-bottom-left-image: url(${1});
+${2}
+snippet bdbli:c
+border-bottom-left-image: continue;
+${1}
+snippet bdbli:n
+border-bottom-left-image: none;
+${1}
+snippet bdblrz
+border-bottom-left-radius: ${1};
+${2}
+snippet bdbri
+border-bottom-right-image: url(${1});
+${2}
+snippet bdbri:c
+border-bottom-right-image: continue;
+${1}
+snippet bdbri:n
+border-bottom-right-image: none;
+${1}
+snippet bdbrrz
+border-bottom-right-radius: ${1};
+${2}
+snippet bdbs
+border-bottom-style: ${1};
+${2}
+snippet bdbs:n
+border-bottom-style: none;
+${1}
+snippet bdbw
+border-bottom-width: ${1};
+${2}
+snippet bdb
+border-bottom: ${1};
+${2}
+snippet bdb:n
+border-bottom: none;
+${1}
+snippet bdbk
+border-break: ${1};
+${2}
+snippet bdbk:c
+border-break: close;
+${1}
+snippet bdcl
+border-collapse: ${1};
+${2}
+snippet bdcl:c
+border-collapse: collapse;
+${1}
+snippet bdcl:s
+border-collapse: separate;
+${1}
+snippet bdc
+border-color: #${1:000};
+${1}
+snippet bdci
+border-corner-image: url(${1});
+${2}
+snippet bdci:c
+border-corner-image: continue;
+${1}
+snippet bdci:n
+border-corner-image: none;
+${1}
+snippet bdf
+border-fit: ${1};
+${2}
+snippet bdf:c
+border-fit: clip;
+${1}
+snippet bdf:of
+border-fit: overwrite;
+${1}
+snippet bdf:ow
+border-fit: overwrite;
+${1}
+snippet bdf:r
+border-fit: repeat;
+${1}
+snippet bdf:sc
+border-fit: scale;
+${1}
+snippet bdf:sp
+border-fit: space;
+${1}
+snippet bdf:st
+border-fit: stretch;
+${1}
+snippet bdi
+border-image: url(${1}) ${2:0} ${3:0} ${4:0} ${5:0} ${6:stretch} ${7:stretch};
+${8}
+snippet bdi:n
+border-image: none;
+${1}
+snippet bdl+
+border-left: ${1:1px} ${2:solid} #${3:000};
+${4}
+snippet bdlc
+border-left-color: #${1:000};
+${2}
+snippet bdli
+border-left-image: url(${1});
+${2}
+snippet bdli:n
+border-left-image: none;
+${1}
+snippet bdls
+border-left-style: ${1};
+${2}
+snippet bdls:n
+border-left-style: none;
+${1}
+snippet bdlw
+border-left-width: ${1};
+${2}
+snippet bdl
+border-left: ${1};
+${2}
+snippet bdl:n
+border-left: none;
+${1}
+snippet bdlt
+border-length: ${1};
+${2}
+snippet bdlt:a
+border-length: auto;
+${1}
+snippet bdrz
+border-radius: ${1};
+${2}
+snippet bdr+
+border-right: ${1:1px} ${2:solid} #${3:000};
+${4}
+snippet bdrc
+border-right-color: #${1:000};
+${2}
+snippet bdri
+border-right-image: url(${1});
+${2}
+snippet bdri:n
+border-right-image: none;
+${1}
+snippet bdrs
+border-right-style: ${1};
+${2}
+snippet bdrs:n
+border-right-style: none;
+${1}
+snippet bdrw
+border-right-width: ${1};
+${2}
+snippet bdr
+border-right: ${1};
+${2}
+snippet bdr:n
+border-right: none;
+${1}
+snippet bdsp
+border-spacing: ${1};
+${2}
+snippet bds
+border-style: ${1};
+${2}
+snippet bds:ds
+border-style: dashed;
+${1}
+snippet bds:dtds
+border-style: dot-dash;
+${1}
+snippet bds:dtdtds
+border-style: dot-dot-dash;
+${1}
+snippet bds:dt
+border-style: dotted;
+${1}
+snippet bds:db
+border-style: double;
+${1}
+snippet bds:g
+border-style: groove;
+${1}
+snippet bds:h
+border-style: hidden;
+${1}
+snippet bds:i
+border-style: inset;
+${1}
+snippet bds:n
+border-style: none;
+${1}
+snippet bds:o
+border-style: outset;
+${1}
+snippet bds:r
+border-style: ridge;
+${1}
+snippet bds:s
+border-style: solid;
+${1}
+snippet bds:w
+border-style: wave;
+${1}
+snippet bdt+
+border-top: ${1:1px} ${2:solid} #${3:000};
+${4}
+snippet bdtc
+border-top-color: #${1:000};
+${2}
+snippet bdti
+border-top-image: url(${1});
+${2}
+snippet bdti:n
+border-top-image: none;
+${1}
+snippet bdtli
+border-top-left-image: url(${1});
+${2}
+snippet bdtli:c
+border-corner-image: continue;
+${1}
+snippet bdtli:n
+border-corner-image: none;
+${1}
+snippet bdtlrz
+border-top-left-radius: ${1};
+${2}
+snippet bdtri
+border-top-right-image: url(${1});
+${2}
+snippet bdtri:c
+border-top-right-image: continue;
+${1}
+snippet bdtri:n
+border-top-right-image: none;
+${1}
+snippet bdtrrz
+border-top-right-radius: ${1};
+${2}
+snippet bdts
+border-top-style: ${1};
+${2}
+snippet bdts:n
+border-top-style: none;
+${1}
+snippet bdtw
+border-top-width: ${1};
+${2}
+snippet bdt
+border-top: ${1};
+${2}
+snippet bdt:n
+border-top: none;
+${1}
+snippet bdw
+border-width: ${1};
+${2}
+snippet bd
+border: ${1};
+${2}
+snippet bd:n
+border: none;
+${1}
+# Bottom (positioning)
+snippet b
+bottom: ${1};
+${2}
+snippet b:a
+bottom: auto;
+${1}
+# Box-Shadow
+snippet bxsh+
+box-shadow: ${1:0} ${2:0} ${3:0} #${4:000};
+${5}
+snippet bxsh
+box-shadow: ${1};
+${2}
+snippet bxsh:n
+box-shadow: none;
+${1}
+# Box Sizing
+snippet bxz
+box-sizing: ${1};
+${2}
+snippet bxz:bb
+box-sizing: border-box;
+${1}
+snippet bxz:cb
+box-sizing: content-box;
+${1}
+# Caption-side (table)
+snippet cps
+caption-side: ${1};
+${2}
+snippet cps:b
+caption-side: bottom;
+${1}
+snippet cps:t
+caption-side: top;
+${1}
+# Clear
+snippet cl
+clear: ${1};
+${2}
+snippet cl:b
+clear: both;
+${1}
+snippet cl:l
+clear: left;
+${1}
+snippet cl:n
+clear: none;
+${1}
+snippet cl:r
+clear: right;
+${1}
+# Clip
+snippet cp
+clip: ${1};
+${2}
+snippet cp:a
+clip: auto;
+${1}
+snippet cp:r
+clip: rect(${1:0} ${2:0} ${3:0} ${4:0});
+${5}
+# Color
+snippet c
+color: #${1:000};
+${2}
+# Content (pseudo-elements)
+snippet ct
+content: ${1};
+${2}
+snippet ct:a
+content: attr(${1});
+${2}
+snippet ct:cq
+content: close-quote;
+${1}
+snippet ct:c
+content: counter(${1});
+${2}
+snippet ct:cs
+content: counters(${1});
+${2}
+snippet ct:ncq
+content: no-close-quote;
+${1}
+snippet ct:noq
+content: no-open-quote;
+${1}
+snippet ct:n
+content: normal;
+${1}
+snippet ct:oq
+content: open-quote;
+${1}
+# Counter
+snippet coi
+counter-increment: ${1};
+${2}
+snippet cor
+counter-reset: ${1};
+${2}
+# Cursor
+snippet cur
+cursor: ${1};
+${2}
+snippet cur:a
+cursor: auto;
+${1}
+snippet cur:c
+cursor: crosshair;
+${1}
+snippet cur:d
+cursor: default;
+${1}
+snippet cur:ha
+cursor: hand;
+${1}
+snippet cur:he
+cursor: help;
+${1}
+snippet cur:m
+cursor: move;
+${1}
+snippet cur:p
+cursor: pointer;
+${1}
+snippet cur:t
+cursor: text;
+${1}
+# Display
+snippet d
+display: ${1};
+${2}
+snippet d:mib
+display: -moz-inline-box;
+${1}
+snippet d:mis
+display: -moz-inline-stack;
+${1}
+snippet d:b
+display: block;
+${1}
+snippet d:cp
+display: compact;
+${1}
+snippet d:ib
+display: inline-block;
+${1}
+snippet d:itb
+display: inline-table;
+${1}
+snippet d:i
+display: inline;
+${1}
+snippet d:li
+display: list-item;
+${1}
+snippet d:n
+display: none;
+${1}
+snippet d:ri
+display: run-in;
+${1}
+snippet d:tbcp
+display: table-caption;
+${1}
+snippet d:tbc
+display: table-cell;
+${1}
+snippet d:tbclg
+display: table-column-group;
+${1}
+snippet d:tbcl
+display: table-column;
+${1}
+snippet d:tbfg
+display: table-footer-group;
+${1}
+snippet d:tbhg
+display: table-header-group;
+${1}
+snippet d:tbrg
+display: table-row-group;
+${1}
+snippet d:tbr
+display: table-row;
+${1}
+snippet d:tb
+display: table;
+${1}
+# Empty-Cells
+snippet ec
+empty-cells: ${1};
+${2}
+snippet ec:h
+empty-cells: hide;
+${1}
+snippet ec:s
+empty-cells: show;
+${1}
+# Expression
+snippet exp
+expression()
+${1}
+# Float
+snippet fl
+float: ${1};
+${2}
+snippet fl:l
+float: left;
+${1}
+snippet fl:n
+float: none;
+${1}
+snippet fl:r
+float: right;
+${1}
+# Font
+snippet f+
+font: ${1:1em} ${2:Arial},${3:sans-serif};
+${4}
+snippet fef
+font-effect: ${1};
+${2}
+snippet fef:eb
+font-effect: emboss;
+${1}
+snippet fef:eg
+font-effect: engrave;
+${1}
+snippet fef:n
+font-effect: none;
+${1}
+snippet fef:o
+font-effect: outline;
+${1}
+snippet femp
+font-emphasize-position: ${1};
+${2}
+snippet femp:a
+font-emphasize-position: after;
+${1}
+snippet femp:b
+font-emphasize-position: before;
+${1}
+snippet fems
+font-emphasize-style: ${1};
+${2}
+snippet fems:ac
+font-emphasize-style: accent;
+${1}
+snippet fems:c
+font-emphasize-style: circle;
+${1}
+snippet fems:ds
+font-emphasize-style: disc;
+${1}
+snippet fems:dt
+font-emphasize-style: dot;
+${1}
+snippet fems:n
+font-emphasize-style: none;
+${1}
+snippet fem
+font-emphasize: ${1};
+${2}
+snippet ff
+font-family: ${1};
+${2}
+snippet ff:c
+font-family: ${1:'Monotype Corsiva','Comic Sans MS'},cursive;
+${2}
+snippet ff:f
+font-family: ${1:Capitals,Impact},fantasy;
+${2}
+snippet ff:m
+font-family: ${1:Monaco,'Courier New'},monospace;
+${2}
+snippet ff:ss
+font-family: ${1:Helvetica,Arial},sans-serif;
+${2}
+snippet ff:s
+font-family: ${1:Georgia,'Times New Roman'},serif;
+${2}
+snippet fza
+font-size-adjust: ${1};
+${2}
+snippet fza:n
+font-size-adjust: none;
+${1}
+snippet fz
+font-size: ${1};
+${2}
+snippet fsm
+font-smooth: ${1};
+${2}
+snippet fsm:aw
+font-smooth: always;
+${1}
+snippet fsm:a
+font-smooth: auto;
+${1}
+snippet fsm:n
+font-smooth: never;
+${1}
+snippet fst
+font-stretch: ${1};
+${2}
+snippet fst:c
+font-stretch: condensed;
+${1}
+snippet fst:e
+font-stretch: expanded;
+${1}
+snippet fst:ec
+font-stretch: extra-condensed;
+${1}
+snippet fst:ee
+font-stretch: extra-expanded;
+${1}
+snippet fst:n
+font-stretch: normal;
+${1}
+snippet fst:sc
+font-stretch: semi-condensed;
+${1}
+snippet fst:se
+font-stretch: semi-expanded;
+${1}
+snippet fst:uc
+font-stretch: ultra-condensed;
+${1}
+snippet fst:ue
+font-stretch: ultra-expanded;
+${1}
+snippet fs
+font-style: ${1};
+${2}
+snippet fs:i
+font-style: italic;
+${1}
+snippet fs:n
+font-style: normal;
+${1}
+snippet fs:o
+font-style: oblique;
+${1}
+snippet fv
+font-variant: ${1};
+${2}
+snippet fv:n
+font-variant: normal;
+${1}
+snippet fv:sc
+font-variant: small-caps;
+${1}
+snippet fw
+font-weight: ${1};
+${2}
+snippet fw:b
+font-weight: bold;
+${1}
+snippet fw:br
+font-weight: bolder;
+${1}
+snippet fw:lr
+font-weight: lighter;
+${1}
+snippet fw:n
+font-weight: normal;
+${1}
+snippet f
+font: ${1};
+${2}
+# Height
+snippet h
+height: ${1};
+${2}
+snippet h:a
+height: auto;
+${1}
+# Left (positioning)
+snippet l
+left: ${1};
+${2}
+snippet l:a
+left: auto;
+${1}
+# Letter Spacing
+snippet lts
+letter-spacing: ${1};
+${2}
+# Line-Height
+snippet lh
+line-height: ${1};
+${2}
+# List Style
+snippet lisi
+list-style-image: url(${1});
+${2}
+snippet lisi:n
+list-style-image: none;
+${1}
+snippet lisp
+list-style-position: ${1};
+${2}
+snippet lisp:i
+list-style-position: inside;
+${1}
+snippet lisp:o
+list-style-position: outside;
+${1}
+snippet list
+list-style-type: ${1};
+${2}
+snippet list:c
+list-style-type: circle;
+${1}
+snippet list:dclz
+list-style-type: decimal-leading-zero;
+${1}
+snippet list:dc
+list-style-type: decimal;
+${1}
+snippet list:d
+list-style-type: disc;
+${1}
+snippet list:lr
+list-style-type: lower-roman;
+${1}
+snippet list:n
+list-style-type: none;
+${1}
+snippet list:s
+list-style-type: square;
+${1}
+snippet list:ur
+list-style-type: upper-roman;
+${1}
+snippet lis
+list-style: ${1};
+${1}
+snippet lis:n
+list-style: none;
+${1}
+# Margin
+snippet mb
+margin-bottom: ${1};
+${2}
+snippet mb:a
+margin-bottom: auto;
+${1}
+snippet ml
+margin-left: ${1};
+${2}
+snippet ml:a
+margin-left: auto;
+${1}
+snippet mr
+margin-right: ${1};
+${2}
+snippet mr:a
+margin-right: auto;
+${1}
+snippet mt
+margin-top: ${1};
+${2}
+snippet mt:a
+margin-top: auto;
+${1}
+snippet m
+margin: ${1};
+${2}
+snippet m:4
+margin: ${1:0} ${2:0} ${3:0} ${4:0};
+${5}
+snippet m:3
+margin: ${1:0} ${2:0} ${3:0};
+${4}
+snippet m:2
+margin: ${1:0} ${2:0};
+${3}
+snippet m:0
+margin: 0;
+${1}
+snippet m:a
+margin: auto;
+${1}
+# Max-Height
+snippet mah
+max-height: ${1};
+${2}
+snippet mah:n
+max-height: none;
+${1}
+# Max-Width
+snippet maw
+max-width: ${1};
+${2}
+snippet maw:n
+max-width: none;
+${1}
+# Min-Height
+snippet mih
+min-height: ${1};
+${2}
+# Min-Width
+snippet miw
+min-width: ${1};
+${2}
+# Opacity
+snippet op
+opacity: ${1};
+${2}
+# Filter
+snippet op:ie
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=${1:100});
+${2}
+snippet op:ms
+-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=${1:100})';
+${2}
+# Orphans
+snippet orp
+orphans: ${1};
+${2}
+# Outline
+snippet o+
+outline: ${1:1px} ${2:solid} #${3:000};
+${4}
+snippet oc
+outline-color: ${1:#000};
+${2}
+snippet oc:i
+outline-color: invert;
+${1}
+snippet oo
+outline-offset: ${1};
+${2}
+snippet os
+outline-style: ${1};
+${2}
+snippet ow
+outline-width: ${1};
+${2}
+snippet o
+outline: ${1};
+${2}
+snippet o:n
+outline: none;
+${1}
+# Overflow
+snippet ovs
+overflow-style: ${1};
+${2}
+snippet ovs:a
+overflow-style: auto;
+${1}
+snippet ovs:mq
+overflow-style: marquee;
+${1}
+snippet ovs:mv
+overflow-style: move;
+${1}
+snippet ovs:p
+overflow-style: panner;
+${1}
+snippet ovs:s
+overflow-style: scrollbar;
+${1}
+snippet ovx
+overflow-x: ${1};
+${1}
+snippet ovx:a
+overflow-x: auto;
+${1}
+snippet ovx:h
+overflow-x: hidden;
+${1}
+snippet ovx:s
+overflow-x: scroll;
+${1}
+snippet ovx:v
+overflow-x: visible;
+${1}
+snippet ovy
+overflow-y: ${1};
+${2}
+snippet ovy:a
+overflow-y: auto;
+${1}
+snippet ovy:h
+overflow-y: hidden;
+${1}
+snippet ovy:s
+overflow-y: scroll;
+${1}
+snippet ovy:v
+overflow-y: visible;
+${1}
+snippet ov
+overflow: ${1};
+${2}
+snippet ov:a
+overflow: auto;
+${1}
+snippet ov:h
+overflow: hidden;
+${1}
+snippet ov:s
+overflow: scroll;
+${1}
+snippet ov:v
+overflow: visible;
+${1}
+# Padding
+snippet pb
+padding-bottom: ${1};
+${2}
+snippet pl
+padding-left: ${1};
+${2}
+snippet pr
+padding-right: ${1};
+${2}
+snippet pt
+padding-top: ${1};
+${2}
+snippet p
+padding: ${1};
+${2}
+snippet p:4
+padding: ${1:0} ${2:0} ${3:0} ${4:0};
+${5}
+snippet p:3
+padding: ${1:0} ${2:0} ${3:0};
+${4}
+snippet p:2
+padding: ${1:0} ${2:0};
+${3}
+snippet p:0
+padding: 0;
+${1}
+# Page Break
+snippet pgba
+page-break-after: ${1};
+${2}
+snippet pgba:aw
+page-break-after: always;
+${1}
+snippet pgba:a
+page-break-after: auto;
+snippet pgba:l
+page-break-after: left;
+${1}
+snippet pgba:r
+page-break-after: right;
+${1}
+snippet pgbb
+page-break-before: ${1};
+${2}
+snippet pgbb:aw
+page-break-before: always;
+${1}
+snippet pgbb:a
+page-break-before: auto;
+${1}
+snippet pgbb:l
+page-break-before: left;
+${1}
+snippet pgbb:r
+page-break-before: right;
+${1}
+snippet pgbi
+page-break-inside: ${1};
+${1}
+snippet pgbi:a
+page-break-inside: auto;
+${1}
+snippet pgbi:av
+page-break-inside: avoid;
+${1}
+# Position
+snippet pos
+position: ${1};
+${2}
+snippet pos:a
+position: absolute;
+${1}
+snippet pos:f
+position: fixed;
+${1}
+snippet pos:r
+position: relative;
+${1}
+snippet pos:s
+position: static;
+${1}
+# Quotes
+snippet q
+quotes: ${1};
+${2}
+snippet q:en
+quotes: '\201C' '\201D' '\2018' '\2019';
+${1}
+snippet q:n
+quotes: none;
+${1}
+snippet q:ru
+quotes: '\00AB' '\00BB' '\201E' '\201C';
+${1}
+# Resize
+snippet rz
+resize: ${1};
+${2}
+snippet rz:b
+resize: both;
+${1}
+snippet rz:h
+resize: horizontal;
+${1}
+snippet rz:n
+resize: none;
+${1}
+snippet rz:v
+resize: vertical;
+${1}
+# Right (positioning)
+snippet r
+right: ${1};
+${2}
+snippet r:a
+right: auto;
+${1}
+# Table-Layout
+snippet tbl
+table-layout: ${1};
+${2}
+snippet tbl:a
+table-layout: auto;
+${1}
+snippet tbl:f
+table-layout: fixed;
+${1}
+# Text-Align
+snippet tal
+text-align-last: ${1};
+${2}
+snippet tal:a
+text-align-last: auto;
+${1}
+snippet tal:c
+text-align-last: center;
+${1}
+snippet tal:l
+text-align-last: left;
+${1}
+snippet tal:r
+text-align-last: right;
+${1}
+snippet ta
+text-align: ${1};
+${2}
+snippet ta:c
+text-align: center;
+${1}
+snippet ta:l
+text-align: left;
+${1}
+snippet ta:r
+text-align: right;
+${1}
+# Text-Decoration
+snippet td
+text-decoration: ${1};
+${2}
+snippet td:l
+text-decoration: line-through;
+${1}
+snippet td:n
+text-decoration: none;
+${1}
+snippet td:o
+text-decoration: overline;
+${1}
+snippet td:u
+text-decoration: underline;
+${1}
+# Text-Emphasis
+snippet te
+text-emphasis: ${1};
+${2}
+snippet te:ac
+text-emphasis: accent;
+${1}
+snippet te:a
+text-emphasis: after;
+${1}
+snippet te:b
+text-emphasis: before;
+${1}
+snippet te:c
+text-emphasis: circle;
+${1}
+snippet te:ds
+text-emphasis: disc;
+${1}
+snippet te:dt
+text-emphasis: dot;
+${1}
+snippet te:n
+text-emphasis: none;
+${1}
+# Text-Height
+snippet th
+text-height: ${1};
+${2}
+snippet th:a
+text-height: auto;
+${1}
+snippet th:f
+text-height: font-size;
+${1}
+snippet th:m
+text-height: max-size;
+${1}
+snippet th:t
+text-height: text-size;
+${1}
+# Text-Indent
+snippet ti
+text-indent: ${1};
+${2}
+snippet ti:-
+text-indent: -9999px;
+${1}
+# Text-Justify
+snippet tj
+text-justify: ${1};
+${2}
+snippet tj:a
+text-justify: auto;
+${1}
+snippet tj:d
+text-justify: distribute;
+${1}
+snippet tj:ic
+text-justify: inter-cluster;
+${1}
+snippet tj:ii
+text-justify: inter-ideograph;
+${1}
+snippet tj:iw
+text-justify: inter-word;
+${1}
+snippet tj:k
+text-justify: kashida;
+${1}
+snippet tj:t
+text-justify: tibetan;
+${1}
+# Text-Outline
+snippet to+
+text-outline: ${1:0} ${2:0} #${3:000};
+${4}
+snippet to
+text-outline: ${1};
+${2}
+snippet to:n
+text-outline: none;
+${1}
+# Text-Replace
+snippet tr
+text-replace: ${1};
+${2}
+snippet tr:n
+text-replace: none;
+${1}
+# Text-Shadow
+snippet tsh+
+text-shadow: ${1:0} ${2:0} ${3:0} #${4:000};
+${5}
+snippet tsh
+text-shadow: ${1};
+${2}
+snippet tsh:n
+text-shadow: none;
+${1}
+# Text-Transform
+snippet tt
+text-transform: ${1};
+${2}
+snippet tt:c
+text-transform: capitalize;
+${1}
+snippet tt:l
+text-transform: lowercase;
+${1}
+snippet tt:n
+text-transform: none;
+${1}
+snippet tt:u
+text-transform: uppercase;
+${1}
+# Text-Wrap
+snippet tw
+text-wrap: ${1};
+${2}
+snippet tw:no
+text-wrap: none;
+${1}
+snippet tw:n
+text-wrap: normal;
+${1}
+snippet tw:s
+text-wrap: suppress;
+${1}
+snippet tw:u
+text-wrap: unrestricted;
+${1}
+# Top (positioning)
+snippet t
+top: ${1};
+${2}
+snippet t:a
+top: auto;
+${1}
+# Vertical-Align
+snippet va
+vertical-align: ${1};
+${2}
+snippet va:bl
+vertical-align: baseline;
+${1}
+snippet va:b
+vertical-align: bottom;
+${1}
+snippet va:m
+vertical-align: middle;
+${1}
+snippet va:sub
+vertical-align: sub;
+${1}
+snippet va:sup
+vertical-align: super;
+${1}
+snippet va:tb
+vertical-align: text-bottom;
+${1}
+snippet va:tt
+vertical-align: text-top;
+${1}
+snippet va:t
+vertical-align: top;
+${1}
+# Visiability
+snippet v
+visibility: ${1};
+${2}
+snippet v:c
+visibility: collapse;
+${1}
+snippet v:h
+visibility: hidden;
+${1}
+snippet v:v
+visibility: visible;
+${1}
+# White-Space-collapse
+snippet whsc
+white-space-collapse: ${1};
+${2}
+snippet whsc:ba
+white-space-collapse: break-all;
+${1}
+snippet whsc:bs
+white-space-collapse: break-strict;
+${1}
+snippet whsc:k
+white-space-collapse: keep-all;
+${1}
+snippet whsc:l
+white-space-collapse: loose;
+${1}
+snippet whsc:n
+white-space-collapse: normal;
+${1}
+# White-Space
+snippet whs
+white-space: ${1};
+${2}
+snippet whs:n
+white-space: normal;
+${1}
+snippet whs:nw
+white-space: nowrap;
+${1}
+snippet whs:pl
+white-space: pre-line;
+${1}
+snippet whs:pw
+white-space: pre-wrap;
+${1}
+snippet whs:p
+white-space: pre;
+${1}
+# Widos
+snippet wid
+widows: ${1};
+${2}
+# Width
+snippet w
+width: ${1};
+${2}
+snippet w:a
+width: auto;
+${1}
+# Word-Break
+snippet wob
+word-break: ${1};
+${2}
+snippet wob:ba
+word-break: break-all;
+${1}
+snippet wob:bs
+word-break: break-strict;
+${1}
+snippet wob:k
+word-break: keep-all;
+${1}
+snippet wob:l
+word-break: loose;
+${1}
+snippet wob:n
+word-break: normal;
+${1}
+# Word-Spacing
+snippet wos
+word-spacing: ${1};
+${2}
+# Word-Wrap
+snippet wow
+word-wrap: ${1};
+${2}
+snippet wow:no
+word-wrap: none;
+${1}
+snippet wow:n
+word-wrap: normal;
+${1}
+snippet wow:s
+word-wrap: suppress;
+${1}
+snippet wow:u
+word-wrap: unrestricted;
+${1}
+# Z-Index
+snippet z
+z-index: ${1};
+${2}
+snippet z:a
+z-index: auto;
+${1}
+# Zoom
+snippet zoo
+zoom: 1;
+${1}

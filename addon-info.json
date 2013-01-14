@@ -4,10 +4,6 @@
   "maintainer" : "Kwale Design",
   "repository" : {"type": "git", "url": "git://github.com/kwaledesign/scss-snippets.git"},
   "dependencies" : {
-    "snipmate": {
-      "type": "git",
-      "url": "https://github.com/garbas/vim-snipmate.git"
-    }
   },
   "description" : "scss and compass snippets for snipmate"
 }

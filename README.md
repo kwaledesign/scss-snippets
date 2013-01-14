@@ -24,11 +24,10 @@ scss-snippets is a Vim SnipMate plugin to enable auto-completion for SCSS and mu
 * have `filetype on` in your *.vimrc* (recommended)
 
 ## Notes
-(See `scss.snippets` for the actual snippets, I've done my best to keep it well
-commented).
+See `scss.snippets` for the actual snippets.
 
 ### Sass
-* Sass functions use the first three letters of the function (occ. four)
+* Most SassScript functions use the first three letters of the function.
 
 ### Compass
 * The majority of [Compass](http://compass-style.org/) is included, specificly: 
@@ -44,10 +43,7 @@ commented).
     an issue, or even better a pull request.
 
 ## To Do
-* cross reference with css spec, re-map any Compass css3 snippets using
-  unneeded prefixes to unprefixed version.
-* potentially expand Compass support if community demand exists
+* Potentially expand Compass support if community demand exists
 
 ## License:
-Just as the original snipMate pluginall the snippets are licensed under the
-terms of the MIT license.
+scss-snippets is licensed under the terms of the MIT license.

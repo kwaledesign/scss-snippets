@@ -1,6 +1,7 @@
 # SASS and Compass Snippets for Vim's Snipmate Plugin
 
-scss-snippets is a Vim SnipMate plugin to enable auto-completion for SCSS and much of Compass
+scss-snippets is a Vim SnipMate plugin to enable auto-completion for SCSS and much of Compass. It also includes a revised version of [honza's]()
+  [css.snippets](https://github.com/honza/snipmate-snippets/blob/master/snippets/css.snippets) to facilitate granular control over snippet collisions and to closely integrate with Compass allowing for quicker updates as browsers drop the prefixed versions of CSS properties.
 
 ## Installation
 
@@ -42,7 +43,19 @@ See `scss.snippets` for the actual snippets.
     use were left out. If any of these ommissions disapoint you, please file
     an issue, or even better a pull request.
 
+### CSS
+* The majority of [honza's]()
+  [css.snippets](https://github.com/honza/snipmate-snippets/blob/master/snippets/css.snippets)
+  are included, along with the following modifications:
+  * All prefixed css properties were removed in favor of the above Compass CSS3
+    Module snippets
+  * Also, the ability to tab out of the current property into a new line was
+    added to each css snippet. This functionality is consistient with both the
+    Sass and Compass snippets.
+
 ## To Do
+* Remove Compass CSS3 prefixed snippets and remap to the unprefixed CSS3
+  versions as needed.
 * Potentially expand Compass support if community demand exists
 
 ## License:

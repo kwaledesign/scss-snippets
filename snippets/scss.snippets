@@ -147,18 +147,18 @@ change-color(${1:color})
 ${2}
 # Converts a color into the format understood by IE filters
 snippet iehx
-ie-hex-str($color)
+ie-hex-str(${1:color})
 ${2}
 #
 # String Functions
 #
 snippet uq
-unquote($string)
-${1}
+unquote(${1:string})
+${2}
 # Adds quotes to a string
 snippet q
-quote($string)
-${1}
+quote(${1:string})
+${2}
 #
 # Number Functions
 #
@@ -207,14 +207,14 @@ join(${1})
 ${2}
 # Appends a single value onto the end of a list
 snippet app
-append({1:list1}, ${2:val})
+append(${1:list1}, ${2:val})
 ${3}
 #
 # Introspective Functions
 #
 # Returns the type of a value
 snippet to
-type-of($1})
+type-of(${1})
 ${2}
 # Returns the units associated with a number
 snippet u
@@ -328,10 +328,10 @@ snippet @db
 ${1}
 snippet @bo
 @include box-orient(${1:horizontal});
-${1}
+${2}
 snippet @ba
 @include box-align(${1:start});
-${1}
+${2}
 snippet @bf
 @include box-flex(${1:0});
 ${2}
@@ -782,7 +782,7 @@ snippet @asrb
 @include apply-side-rhythm-border(${1});
 ${2}
 snippet @rbo
-@inlcude rhythm-border($});
+@inlcude rhythm-border(${1});
 ${2}
 snippet @lb
 @include leading-border(${1});
@@ -829,7 +829,7 @@ snippet @f-f
 ${2}
 # Image Dimensions
 snippet @iw
-@include iage-width(${1});
+@include image-width(${1});
 ${2}
 snippet @ih
 @include image-height(${1});
@@ -847,7 +847,7 @@ pi()
 ${1}
 snippet sin
 sin(${1})
-${1}
+${2}
 snippet cos
 cos(${1})
 ${2}
@@ -874,7 +874,7 @@ snippet aps
 append-selector(${1})
 ${2}
 snippet headers
-headers($}{1})
+headers(${1})
 ${2}
 # URLS
 snippet s-u
@@ -956,7 +956,7 @@ $disable-magic-sprite-selectors
 ${1}
 snippet @sd
 @include sprite-dimensions(${1:map}, ${2:sprite});
-${2}
+${3}
 snippet @sbp
 @include sprite-background-position(${1});
 ${2}
@@ -1056,19 +1056,19 @@ background-clip: padding-box;
 ${1}
 snippet bgc
 background-color: #${1:FFF};
-${1}
+${2}
 snippet bgc:t
 background-color: transparent;
 ${1}
 snippet bgi
 background-image: url(${1});
-${1}
+${2}
 snippet bgi:n
 background-image: none;
 ${1}
 snippet bgo
 background-origin: ${1};
-${1}
+${2}
 snippet bgo:bb
 background-origin: border-box;
 ${1}
@@ -1104,7 +1104,7 @@ background-repeat: repeat;
 ${1}
 snippet bgz
 background-size: ${1};
-${3}
+${2}
 snippet bgz:a
 background-size: auto;
 ${1}
@@ -1116,7 +1116,7 @@ background-size: cover;
 ${1}
 snippet bg
 background: ${1};
-${1}
+${2}
 snippet bg:ie
 filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='${1}',sizingMethod='${2:crop}');
 ${3}
@@ -1135,7 +1135,7 @@ border-bottom-color: #${1:000};
 ${2}
 snippet bdbi
 border-bottom-image: url(${1});
-${1}
+${2}
 snippet bdbi:n
 border-bottom-image: none;
 ${1}
@@ -1845,7 +1845,7 @@ list-style-type: upper-roman;
 ${1}
 snippet lis
 list-style: ${1};
-${1}
+${2}
 snippet lis:n
 list-style: none;
 ${1}
@@ -1975,7 +1975,7 @@ overflow-style: scrollbar;
 ${1}
 snippet ovx
 overflow-x: ${1};
-${1}
+${2}
 snippet ovx:a
 overflow-x: auto;
 ${1}
@@ -2078,7 +2078,7 @@ page-break-before: right;
 ${1}
 snippet pgbi
 page-break-inside: ${1};
-${1}
+${2}
 snippet pgbi:a
 page-break-inside: auto;
 ${1}
